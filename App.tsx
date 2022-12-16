@@ -4,7 +4,7 @@ import { MarkerColor } from './Icon/Constants';
 import { ISizeMap, MapProps } from './Interfaces/ConfigMap';
 import LeafletMap from './LeafletMap';
 import './style.css';
-import './button.css';
+import Button from './Button';
 
 export default function App() {
   const [mapConfig, setMapConfig] = React.useState<MapProps>();
@@ -43,13 +43,12 @@ export default function App() {
     <div>
       <h2>{title}</h2>
       {Object.keys(EXAMPLES_CONFIGS).map((example, index) => (
-        <button
-          className="btn btn-success btn-lg btn-p-3"
+        <Button
           key={index}
-          onClick={() => selectExample(EXAMPLES_CONFIGS[example])}
-        >
-          {EXAMPLES_CONFIGS[example].buttonLabel}
-        </button>
+          style={'btn btn-success btn-lg btn-p-3'}
+          click={selectExample}
+          select={EXAMPLES_CONFIGS[example]}
+        />
       ))}
       {mapConfig ? <LeafletMap config={mapConfig} /> : <p>Cargando...</p>}
     </div>
