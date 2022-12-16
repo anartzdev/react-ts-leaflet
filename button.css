@@ -1,0 +1,125 @@
+.btn {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+/* Backgrounds */
+
+.btn-success {
+  background-color: #4caf50;
+} /* Green */
+
+.btn-success:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #4caf50;
+}
+
+.btn-success:active {
+  background-color: #1d5021;
+  color: white;
+}
+
+.btn-info {
+  background-color: #008cba;
+} /* Blue */
+
+.btn-info:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #008cba;
+}
+
+.btn-success:active {
+  background-color: #055975;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #f44336;
+} /* Red */
+
+.btn-danger:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #f44336;
+}
+
+.btn-danger:active {
+  background-color: #af2a21;
+  color: white;
+}
+
+.btn-light {
+  background-color: #e7e7e7;
+  color: black;
+} /* Gray */
+
+.btn-light:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.btn-light:active {
+  background-color: #b9b1b1;
+  color: black;
+}
+
+.btn-dark {
+  background-color: #555555;
+} /* Black */
+
+.btn-dark:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
+
+.btn-dark:active {
+  background-color: #9b9797;
+  color: white;
+}
+
+/* Sizes */
+
+.btn-sm {
+  font-size: 10px;
+}
+.btn-md {
+  font-size: 12px;
+}
+.btn-lg {
+  font-size: 16px;
+}
+.btn-xl {
+  font-size: 20px;
+}
+.btn-2-xl {
+  font-size: 24px;
+}
+
+/* Padding */
+
+.btn-p-1 {
+  padding: 10px 24px;
+}
+.btn-p-2 {
+  padding: 12px 28px;
+}
+.btn-p-3 {
+  padding: 14px 40px;
+}
+.btn-p-4 {
+  padding: 16px 42px;
+}
+.btn-p-5 {
+  padding: 18px 44px;
+}

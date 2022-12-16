@@ -5,6 +5,14 @@
   width: 100%;
 }
 
+h2 {
+  background-color: #199900;
+  color: whitesmoke;
+  padding: 0.5rem;
+  text-align: center;
+  margin-bottom: 0.9rem;
+}
+
 .leaflet-popup-content-wrapper {
   min-width: 300px;
 }
@@ -13,15 +21,3 @@
   width: 100%;
   max-height: 170px;
 }
-
-/*
-id={'map'}
-          style={size}
-          center={mapConfig.center}
-          zoom={mapConfig.zoom}
-          markers={mapConfig.markers || []}
-          fullscreen={mapConfig.fullscreen}
-          layers={mapConfig.layers || undefined}
-          defaultMarker={mapConfig.defaultMarker || MarkerColor.Blue}
-
-*/

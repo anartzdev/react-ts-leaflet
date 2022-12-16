@@ -4,6 +4,7 @@ import { IMarker } from '../Interfaces/Layers';
 import { tileLayers } from '../TileLayer/Constants';
 
 export interface UsePropertiesMap {
+  buttonLabel: string;
   center: { lat: number; lng: number };
   zoom: number;
   fullscreen?: boolean;
@@ -54,15 +55,18 @@ const defaultLocation = {
 
 export const EXAMPLES_CONFIGS: ExampleConfigs = {
   Basic: {
+    buttonLabel: 'Mapa',
     center: defaultLocation,
     zoom: 17,
   },
   BasicFullscreen: {
+    buttonLabel: 'Fullscreen',
     center: defaultLocation,
     zoom: 10,
     fullscreen: true,
   },
   BasicWithDefaultMarker: {
+    buttonLabel: 'Marcador único',
     center: defaultLocation,
     zoom: 15,
     defaultMarker: MarkerColor.Red,
@@ -73,6 +77,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     ],
   },
   BasicWithDefaultMarkerAndPopup: {
+    buttonLabel: 'Marcador + Info Básica',
     center: defaultLocation,
     zoom: 12,
     defaultMarker: MarkerColor.Orange,
@@ -86,6 +91,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     ],
   },
   MarkersBasic: {
+    buttonLabel: 'Marcadores + Info',
     center: defaultLocation,
     zoom: 10,
     defaultMarker: MarkerColor.Violet,
@@ -119,6 +125,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     ],
   },
   MapWithControlLayersBase: {
+    buttonLabel: 'Ctrl Capas Base',
     zoom: 14,
     center: defaultLocation,
     layers: {
@@ -144,6 +151,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     },
   },
   MapWithCtrlLayers: {
+    buttonLabel: 'Ctrl Capas Full',
     fullscreen: true,
     center: defaultLocation,
     zoom: 8,
@@ -198,6 +206,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     },
   },
   MapWithCtrlLayersMarkers: {
+    buttonLabel: 'Ctrl Capas + Marker',
     fullscreen: true,
     center: {
       lat: PLACES_LIST_LOCATIONS.FORMIGAL[0],
