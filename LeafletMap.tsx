@@ -4,7 +4,6 @@ import { tileLayers } from './TileLayer/Constants';
 
 import { activeFullScreen, addLayers } from './Control/Functions';
 import { addMarkers } from './Marker/Functions';
-import { MarkerColor } from './Icon/Constants';
 import { MapProps } from './Interfaces/ConfigMap';
 
 const LeafletMap: React.FunctionComponent<{ config: MapProps }> = ({
@@ -35,7 +34,13 @@ const LeafletMap: React.FunctionComponent<{ config: MapProps }> = ({
     // layer control implement
     config.layers && addLayers(mapItem, config.layers);
 
-    config.markers && addMarkers(mapItem, config.markers, config.defaultMarker);
+    config.markers &&
+      addMarkers(
+        mapItem,
+        config.markers,
+        config.markers.length ? config.markers[0].custom : false,
+        config.defaultMarker
+      );
 
     config.fullscreen && activeFullScreen(mapItem, config.id || 'map');
 

@@ -1,3 +1,4 @@
+import { drinkWaterSoraluze } from '../Data/Markers';
 import { MarkerColor } from '../Icon/Constants';
 import { ILayers } from '../Interfaces/Control';
 import { IMarker } from '../Interfaces/Layers';
@@ -21,6 +22,7 @@ interface ExampleConfigs {
   MapWithControlLayersBase: UsePropertiesMap;
   MapWithCtrlLayers: UsePropertiesMap;
   MapWithCtrlLayersMarkers: UsePropertiesMap;
+  MarkersCustom: UsePropertiesMap;
 }
 
 export const PLACES_LIST_LOCATIONS = {
@@ -251,5 +253,29 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         },
       ],
     },
+  },
+  MarkersCustom: {
+    buttonLabel: 'Marcadores Custom',
+    center: {
+      lat: 43.174778,
+      lng: -2.411722,
+    },
+    zoom: 15,
+    markers: [
+      ...drinkWaterSoraluze.map((drinkWater) => {
+        return {
+          custom: true,
+          position: {
+            lat: drinkWater.lat,
+            lng: drinkWater.lon,
+          },
+          popup: {
+            content: `
+        <h2>${drinkWater.name}</h2>
+        `,
+          },
+        };
+      }),
+    ],
   },
 };

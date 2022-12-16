@@ -5,6 +5,7 @@ import { ISizeMap, MapProps } from './Interfaces/ConfigMap';
 import LeafletMap from './LeafletMap';
 import './style.css';
 import Button from './Button';
+import { drinkWaterSoraluze } from './Data/Markers';
 
 export default function App() {
   const [mapConfig, setMapConfig] = React.useState<MapProps>();
@@ -13,7 +14,7 @@ export default function App() {
   );
   const size: ISizeMap = {
     width: '100%',
-    height: '750px',
+    height: '87vh',
   };
 
   const changeTitle = (buttonLabel: string) =>

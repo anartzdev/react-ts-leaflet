@@ -22,4 +22,5 @@ interface ILayer {
 
 export interface IMarker extends ILayer {
   draggable?: boolean;
+  custom?: boolean;
 }

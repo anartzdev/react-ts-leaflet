@@ -1,5 +1,6 @@
 import { Map, Icon, marker, LatLng, Marker } from 'leaflet';
 import { MarkerColor } from '../Icon/Constants';
+import { drinkWaterIcon } from '../Icon/Custom';
 import { defaultOptionsIconConfig } from '../Icon/Default';
 import { IMarker } from '../Interfaces/Layers';
 
@@ -10,9 +11,12 @@ import { IMarker } from '../Interfaces/Layers';
 export function addMarkers(
   map: Map,
   markers: Array<IMarker> = [],
+  custom: boolean = false,
   iconColor: string = MarkerColor.Blue
 ) {
-  const options = defaultOptionsIconConfig(iconColor);
+  const options = !custom
+    ? defaultOptionsIconConfig(iconColor)
+    : { icon: drinkWaterIcon };
   if (markers.length === 1) {
     const markerElement = marker(
       [markers[0].position.lat, markers[0].position.lng],
