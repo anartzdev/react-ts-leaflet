@@ -244,6 +244,11 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
           atribution: tileLayers.baseLayers.osmHot.atribution,
           default: true,
         },
+        {
+          label: 'Esri - WSM',
+          map: tileLayers.baseLayers.esri.worldStreetMap.map,
+          atribution: tileLayers.baseLayers.esri.worldStreetMap.atribution,
+        },
       ],
       overLayers: [
         {

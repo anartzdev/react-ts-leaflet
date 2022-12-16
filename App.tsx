@@ -43,9 +43,9 @@ export default function App() {
   return (
     <div>
       <h2>{title}</h2>
-      {Object.keys(EXAMPLES_CONFIGS).map((example, index) => (
+      {Object.keys(EXAMPLES_CONFIGS).map((example) => (
         <Button
-          key={index}
+          key={EXAMPLES_CONFIGS[example].buttonLabel.toLowerCase()}
           style={'btn btn-success btn-lg btn-p-3'}
           click={selectExample}
           select={EXAMPLES_CONFIGS[example]}
