@@ -25,6 +25,7 @@ export interface MapProps {
     width: string;
     height: string;
   };
+  defaultLayer?: IBaseLayer;
   center: { lat: number; lng: number };
   zoom: number;
   layers?: ILayers;

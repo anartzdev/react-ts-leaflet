@@ -5,7 +5,6 @@ import { ISizeMap, MapProps } from './Interfaces/ConfigMap';
 import LeafletMap from './LeafletMap';
 import './style.css';
 import Button from './Button';
-import { drinkWaterSoraluze } from './Data/Markers';
 
 export default function App() {
   const [mapConfig, setMapConfig] = React.useState<MapProps>();
@@ -27,6 +26,7 @@ export default function App() {
       center: example.center,
       zoom: example.zoom,
       markers: example.markers || [],
+      defaultLayer: example.defaultLayer || undefined,
       fullscreen: example.fullscreen,
       layers: example.layers || undefined,
       defaultMarker: example.defaultMarker || MarkerColor.Blue,

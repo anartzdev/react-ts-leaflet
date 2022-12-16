@@ -27,9 +27,18 @@ const LeafletMap: React.FunctionComponent<{ config: MapProps }> = ({
   };
 
   const initMapOptions = () => {
+    console.log(config);
+    config.defaultLayer &&
+      tileLayer(config.defaultLayer.map, {
+        attribution: config.defaultLayer.atribution,
+      }).addTo(mapItem);
+
     // If not add layers, define default layer
-    !config.layers &&
-      tileLayer(tileLayers.baseLayers.default.map).addTo(mapItem);
+    !config.defaultLayer &&
+      !config.layers &&
+      tileLayer(tileLayers.baseLayers.default.map, {
+        attribution: tileLayers.baseLayers.default.atribution,
+      }).addTo(mapItem);
 
     // layer control implement
     config.layers && addLayers(mapItem, config.layers);

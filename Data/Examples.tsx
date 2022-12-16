@@ -1,6 +1,6 @@
 import { drinkWaterSoraluze } from '../Data/Markers';
 import { MarkerColor } from '../Icon/Constants';
-import { ILayers } from '../Interfaces/Control';
+import { IBaseLayer, ILayers } from '../Interfaces/Control';
 import { IMarker } from '../Interfaces/Layers';
 import { tileLayers } from '../TileLayer/Constants';
 
@@ -9,6 +9,7 @@ export interface UsePropertiesMap {
   center: { lat: number; lng: number };
   zoom: number;
   fullscreen?: boolean;
+  defaultLayer?: IBaseLayer;
   markers?: Array<IMarker>;
   layers?: ILayers;
   defaultMarker?: string;
@@ -62,8 +63,12 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     zoom: 17,
   },
   BasicFullscreen: {
-    buttonLabel: 'Fullscreen',
+    buttonLabel: 'Fullscreen + CycloOSM',
     center: defaultLocation,
+    defaultLayer: {
+      map: tileLayers.baseLayers.cycloOsm.map,
+      atribution: tileLayers.baseLayers.cycloOsm.atribution,
+    },
     zoom: 10,
     fullscreen: true,
   },
@@ -261,6 +266,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
       lng: -2.411722,
     },
     zoom: 15,
+    fullscreen: true,
     markers: [
       ...drinkWaterSoraluze.map((drinkWater) => {
         return {
