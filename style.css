@@ -1,0 +1,27 @@
+@import url('https://unpkg.com/leaflet@1.9.3/dist/leaflet.css');
+.map {
+  margin: 0 auto;
+  height: 100vw;
+  width: 100%;
+}
+
+.leaflet-popup-content-wrapper {
+  min-width: 300px;
+}
+
+.leaflet-popup-content-wrapper img {
+  width: 100%;
+  max-height: 170px;
+}
+
+/*
+id={'map'}
+          style={size}
+          center={mapConfig.center}
+          zoom={mapConfig.zoom}
+          markers={mapConfig.markers || []}
+          fullscreen={mapConfig.fullscreen}
+          layers={mapConfig.layers || undefined}
+          defaultMarker={mapConfig.defaultMarker || MarkerColor.Blue}
+
+*/
