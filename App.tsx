@@ -5,7 +5,6 @@ import { ISizeMap, MapProps } from './Interfaces/ConfigMap';
 import LeafletMap from './LeafletMap';
 import './style.css';
 import Button from './Button';
-import { randomLocationValuesFromBounds } from './Helpers';
 
 export default function App() {
   const [mapConfig, setMapConfig] = React.useState<MapProps>();
