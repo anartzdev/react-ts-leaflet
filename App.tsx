@@ -20,6 +20,7 @@ export default function App() {
     setTitle('React Leaflet - '.concat(buttonLabel));
 
   const selectExample = (example: UsePropertiesMap) => {
+    console.log(example);
     setMapConfig({
       id: 'map',
       style: { width: size.width, height: size.height },
@@ -30,6 +31,7 @@ export default function App() {
       fullscreen: example.fullscreen,
       layers: example.layers || undefined,
       defaultMarker: example.defaultMarker || MarkerColor.Blue,
+      fitBounds: example.fitBounds,
     });
     changeTitle(example.buttonLabel);
   };

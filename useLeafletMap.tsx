@@ -4,6 +4,7 @@ import { MapProps } from './Interfaces/ConfigMap';
 import { tileLayers } from './TileLayer/Constants';
 import { activeFullScreen, addLayers } from './Control/Functions';
 import { addMarkers } from './Marker/Functions';
+import { IMarker } from './Interfaces/Layers';
 
 export const useLeafletMap = (config: MapProps) => {
   const [mapItem, setMapItem] = useState<Map>();
@@ -27,6 +28,28 @@ export const useLeafletMap = (config: MapProps) => {
     if (!mapItem) {
       createMapContainer();
     }
+  };
+
+  const markersBounds = (markers: Array<IMarker>) =>
+    markers.map(
+      (point) => [point.position.lat, point.position.lng] as [number, number]
+    );
+
+  const fitBounds = (
+    centerPoint: { lat: number; lng: number } = undefined,
+    markers: Array<IMarker> = []
+  ) => {
+    let bounds: [number, number][] = [];
+    if (centerPoint) {
+      bounds = [[centerPoint.lat, centerPoint.lng] as [number, number]];
+    }
+
+    if (markers) {
+      bounds = [...bounds, ...markersBounds(markers)];
+    }
+
+    console.log(bounds);
+    mapItem && mapItem.fitBounds(bounds);
   };
 
   const initMapOptions = () => {
@@ -59,6 +82,12 @@ export const useLeafletMap = (config: MapProps) => {
         config.id || 'map',
         'Salir de pantalla completa',
         'Pantalla completa'
+      );
+
+    config.fitBounds &&
+      fitBounds(
+        config.fitBounds.center ? config.center : undefined,
+        config.fitBounds.markers ? config.markers : []
       );
   };
 

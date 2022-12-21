@@ -6,7 +6,10 @@ export interface IConfigMap {
   layers?: ILayers;
   fullscreen?: boolean;
   defaultLayer?: IBaseLayer;
-  fitBounds?: boolean;
+  fitBounds?: {
+    center: boolean;
+    markers: boolean;
+  };
   style?: {
     width: string;
     height: string;
@@ -32,4 +35,8 @@ export interface MapProps {
   markers?: Array<IMarker>;
   defaultMarker?: string;
   fullscreen?: boolean;
+  fitBounds?: {
+    center: boolean;
+    markers: boolean;
+  };
 }

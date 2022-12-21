@@ -13,6 +13,10 @@ export interface UsePropertiesMap {
   markers?: Array<IMarker>;
   layers?: ILayers;
   defaultMarker?: string;
+  fitBounds?: {
+    center: boolean;
+    markers: boolean;
+  };
 }
 interface ExampleConfigs {
   Basic: UsePropertiesMap;
@@ -24,6 +28,8 @@ interface ExampleConfigs {
   MapWithCtrlLayers: UsePropertiesMap;
   MapWithCtrlLayersMarkers: UsePropertiesMap;
   MarkersCustom: UsePropertiesMap;
+  MarkersCustomFitBoundsCenter: UsePropertiesMap;
+  MarkersCustomFitBoundsMarker: UsePropertiesMap;
 }
 
 export const PLACES_LIST_LOCATIONS = {
@@ -265,12 +271,71 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     },
   },
   MarkersCustom: {
+    // No centra cámara en base a nada, coge el zoom asignado
     buttonLabel: 'Marcadores Custom',
     center: {
       lat: 43.174778,
       lng: -2.411722,
     },
-    zoom: 15,
+    zoom: 11,
+    fullscreen: true,
+    markers: [
+      ...drinkWaterSoraluze.map((drinkWater) => {
+        return {
+          custom: true,
+          position: {
+            lat: drinkWater.lat,
+            lng: drinkWater.lon,
+          },
+          popup: {
+            content: `
+        <h2>${drinkWater.name}</h2>
+        `,
+          },
+        };
+      }),
+    ],
+  },
+  MarkersCustomFitBoundsCenter: {
+    buttonLabel: 'Marcadores Custom +  Fitbounds Center',
+    fitBounds: {
+      center: true,
+      markers: false,
+    },
+    center: {
+      lat: 43.174778,
+      lng: -2.411722,
+    },
+    zoom: 1,
+    fullscreen: true,
+    markers: [
+      ...drinkWaterSoraluze.map((drinkWater) => {
+        return {
+          custom: true,
+          position: {
+            lat: drinkWater.lat,
+            lng: drinkWater.lon,
+          },
+          popup: {
+            content: `
+        <h2>${drinkWater.name}</h2>
+        `,
+          },
+        };
+      }),
+    ],
+  },
+  MarkersCustomFitBoundsMarker: {
+    buttonLabel: 'Marcadores Custom +  FitBounds Marcadores',
+    fitBounds: {
+      center: false,
+      markers: true,
+    },
+    center: {
+      lat: 43.174778,
+      lng: -2.411722,
+    },
+    zoom: 1,
     fullscreen: true,
     markers: [
       ...drinkWaterSoraluze.map((drinkWater) => {
