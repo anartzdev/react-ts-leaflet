@@ -53,7 +53,13 @@ export const useLeafletMap = (config: MapProps) => {
         config.defaultMarker
       );
 
-    config.fullscreen && activeFullScreen(mapItem, config.id || 'map');
+    config.fullscreen &&
+      activeFullScreen(
+        mapItem,
+        config.id || 'map',
+        'Salir de pantalla completa',
+        'Pantalla completa'
+      );
   };
 
   return {

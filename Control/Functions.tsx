@@ -89,11 +89,15 @@ function groupOverLayers(layers: Array<IOverLayer>, map: Map) {
 
 export function activeFullScreen(
   map: Map,
-  mapId?: string,
-  position?: ControlPosition
+  mapId: string = 'map',
+  exitText: string = 'Salir pantalla completa',
+  entryText: string = 'Ver en pantalla completa',
+  position: ControlPosition = 'topleft'
 ) {
   fullScreenMap({
     position: position || 'topleft',
+    entryText,
+    exitText,
     mapId,
   }).addTo(map);
 }
