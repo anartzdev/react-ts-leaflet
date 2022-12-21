@@ -48,7 +48,6 @@ export const useLeafletMap = (config: MapProps) => {
       bounds = [...bounds, ...markersBounds(markers)];
     }
 
-    console.log(bounds);
     mapItem && mapItem.fitBounds(bounds);
   };
 
