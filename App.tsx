@@ -48,7 +48,7 @@ export default function App() {
       {Object.keys(EXAMPLES_CONFIGS).map((example) => (
         <Button
           key={EXAMPLES_CONFIGS[example].buttonLabel.toLowerCase()}
-          style={'btn btn-success btn-lg btn-p-3'}
+          style={'btn btn-success btn-lg btn-p-1'}
           click={selectExample}
           select={EXAMPLES_CONFIGS[example]}
         />

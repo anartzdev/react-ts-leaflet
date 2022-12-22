@@ -17,6 +17,7 @@ export interface UsePropertiesMap {
     center: boolean;
     markers: boolean;
   };
+  title: string;
 }
 interface ExampleConfigs {
   Basic: UsePropertiesMap;
@@ -66,9 +67,10 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
   Basic: {
     buttonLabel: 'Mapa',
     center: defaultLocation,
+    title: 'Ejemplo Básico de carga de mapa',
   },
   BasicFullscreen: {
-    buttonLabel: 'Fullscreen + CycloOSM',
+    buttonLabel: 'Fullscreen',
     center: defaultLocation,
     defaultLayer: {
       map: tileLayers.baseLayers.cycloOsm.map,
@@ -76,9 +78,11 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     },
     zoom: 10,
     fullscreen: true,
+    title:
+      'Ejemplo Básico de carga de mapa con control para mostrar mapa en pantalla completa',
   },
   BasicWithDefaultMarker: {
-    buttonLabel: 'Marcador único',
+    buttonLabel: 'Marcador',
     center: defaultLocation,
     zoom: 15,
     defaultMarker: MarkerColor.Red,
@@ -87,9 +91,10 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         position: defaultLocation,
       },
     ],
+    title: 'Ejemplo Básico de carga de mapa con un marcador',
   },
   BasicWithDefaultMarkerAndPopup: {
-    buttonLabel: 'Marcador + Info Básica',
+    buttonLabel: 'Marcador + Info',
     center: defaultLocation,
     zoom: 12,
     defaultMarker: MarkerColor.Orange,
@@ -101,6 +106,8 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         },
       },
     ],
+    title:
+      'Ejemplo Básico de carga de mapa con un marcador que contiene opción a mostrar más información con un popup que trabaja como ventana emergente',
   },
   MarkersBasic: {
     buttonLabel: 'Marcadores + Info',
@@ -135,9 +142,11 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         },
       },
     ],
+    title:
+      'Ejemplo Básico de carga de mapa con marcadores que contienen información adicional mediante el uso de popups',
   },
   MapWithControlLayersBase: {
-    buttonLabel: 'Ctrl Capas Base',
+    buttonLabel: 'Capas Base',
     zoom: 14,
     center: defaultLocation,
     layers: {
@@ -161,9 +170,10 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         },
       ],
     },
+    title: 'Ejemplo con uso de control de capas base',
   },
   MapWithCtrlLayers: {
-    buttonLabel: 'Ctrl Capas Full',
+    buttonLabel: 'Capas Full',
     fullscreen: true,
     center: defaultLocation,
     zoom: 8,
@@ -216,9 +226,11 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         },
       ],
     },
+    title:
+      'Ejemplo de control de capas usando las base y de superposición (overlayers)',
   },
   MapWithCtrlLayersMarkers: {
-    buttonLabel: 'Ctrl Capas + Marker',
+    buttonLabel: 'Capas + Marker',
     fullscreen: true,
     center: {
       lat: PLACES_LIST_LOCATIONS.FORMIGAL[0],
@@ -268,6 +280,8 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         },
       ],
     },
+    title:
+      'Ejemplo de control de capas usando las base y de superposición (overlayers) con marcadores con información',
   },
   MarkersCustom: {
     // No centra cámara en base a nada, coge el zoom asignado
@@ -294,9 +308,11 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         };
       }),
     ],
+    title:
+      'Ejemplo de uso de marcadores personalizados con las ubicaciones especificas',
   },
   MarkersCustomFitBoundsCenter: {
-    buttonLabel: 'Marcadores Custom +  Fitbounds Center',
+    buttonLabel: 'Fitbounds Center',
     fitBounds: {
       center: true,
       markers: false,
@@ -323,9 +339,11 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         };
       }),
     ],
+    title:
+      'Ejemplo de control de capas usando las base y de superposición (overlayers) con correción del zoom en base a la posición central del mapa',
   },
   MarkersCustomFitBoundsMarker: {
-    buttonLabel: 'Marcadores Custom +  FitBounds Marcadores',
+    buttonLabel: 'FitBounds Marcadores',
     fitBounds: {
       center: false,
       markers: true,
@@ -352,5 +370,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         };
       }),
     ],
+    title:
+      'Ejemplo de control de capas usando las base y de superposición (overlayers) con correción del zoom en base a la posición de los marcadores del mapa',
   },
 };

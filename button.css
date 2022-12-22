@@ -123,3 +123,32 @@
 .btn-p-5 {
   padding: 18px 44px;
 }
+
+.recent-link {
+  position: relative;
+  font-size: 1rem;
+}
+
+.hovercard {
+  position: absolute;
+  background-color: #1d5021;
+  padding: 1rem;
+  color: white;
+  opacity: 0;
+  z-index: 1;
+  left: 70%;
+  top: 40px;
+  transform: translateX(-50%);
+  width: 400px;
+}
+
+.recent-link:hover .hovercard {
+  opacity: 1;
+  transition: 0.5s;
+  transition-delay: 0.1s;
+  z-index: 2;
+}
+
+.hovercard:hover {
+  opacity: 0;
+}
