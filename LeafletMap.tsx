@@ -10,6 +10,7 @@ const LeafletMap: React.FunctionComponent<{ config: MapProps }> = ({
 
   React.useEffect(() => {
     if (!mapContainer) {
+      console.log(config)
       start();
     } else {
       initConfig();

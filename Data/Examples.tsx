@@ -7,7 +7,7 @@ import { tileLayers } from '../TileLayer/Constants';
 export interface UsePropertiesMap {
   buttonLabel: string;
   center: { lat: number; lng: number };
-  zoom: number;
+  zoom?: number;
   fullscreen?: boolean;
   defaultLayer?: IBaseLayer;
   markers?: Array<IMarker>;
@@ -66,7 +66,6 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
   Basic: {
     buttonLabel: 'Mapa',
     center: defaultLocation,
-    zoom: 17,
   },
   BasicFullscreen: {
     buttonLabel: 'Fullscreen + CycloOSM',

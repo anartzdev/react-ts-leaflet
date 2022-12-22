@@ -5,6 +5,7 @@ import { ISizeMap, MapProps } from './Interfaces/ConfigMap';
 import LeafletMap from './LeafletMap';
 import './style.css';
 import Button from './Button';
+import { getRandomInt } from './Helpers';
 
 export default function App() {
   const [mapConfig, setMapConfig] = React.useState<MapProps>();
@@ -24,7 +25,7 @@ export default function App() {
       id: 'map',
       style: { width: size.width, height: size.height },
       center: example.center,
-      zoom: example.zoom,
+      zoom: example.zoom || getRandomInt(20, 6),
       markers: example.markers || [],
       defaultLayer: example.defaultLayer || undefined,
       fullscreen: example.fullscreen,
