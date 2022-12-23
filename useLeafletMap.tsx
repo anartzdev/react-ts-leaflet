@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Map, map, tileLayer } from 'leaflet';
 import { MapProps } from './Interfaces/ConfigMap';
 import { tileLayers } from './TileLayer/Constants';

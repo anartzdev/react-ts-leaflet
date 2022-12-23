@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import React, { useEffect } from 'react';
 import { MapProps } from './Interfaces/ConfigMap';
 import { useLeafletMap } from './useLeafletMap';
 
@@ -8,16 +7,16 @@ const LeafletMap: React.FunctionComponent<{ config: MapProps }> = ({
 }) => {
   const { start, reset, mapContainer, initConfig } = useLeafletMap(config);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!mapContainer) {
-      console.log(config)
+      console.log(config);
       start();
     } else {
       initConfig();
     }
   }, [mapContainer]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (mapContainer) {
       reset();
     }

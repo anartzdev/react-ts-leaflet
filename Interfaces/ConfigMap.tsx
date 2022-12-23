@@ -15,6 +15,7 @@ export interface IConfigMap {
     height: string;
   };
   zoom?: number;
+  randomMarkers?: boolean;
 }
 
 export interface ISizeMap {
