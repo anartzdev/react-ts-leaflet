@@ -91,13 +91,21 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
         position: defaultLocation,
       },
     ],
+    defaultLayer: {
+      map: tileLayers.baseLayers.osmDE.map,
+      atribution: tileLayers.baseLayers.osmDE.atribution,
+    },
     title: 'Ejemplo Básico de carga de mapa con un marcador',
   },
   BasicWithDefaultMarkerAndPopup: {
     buttonLabel: 'Marcador + Info',
     center: defaultLocation,
-    zoom: 12,
+    zoom: 17,
     defaultMarker: MarkerColor.Orange,
+    defaultLayer: {
+      map: tileLayers.baseLayers.osmDE.map,
+      atribution: tileLayers.baseLayers.osmDE.atribution,
+    },
     markers: [
       {
         position: defaultLocation,
@@ -117,7 +125,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     markers: [
       {
         position: {
-          lat: 40.417333,
+          lat: 41.417333,
           lng: -3.683028,
         },
         popup: {
@@ -153,11 +161,34 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
       position: 'topleft',
       baseLayers: [
         {
+          label: 'Osm Bright',
+          map: tileLayers.baseLayers.stadia.map.OsmBright,
+          atribution: tileLayers.baseLayers.stadia.atribution,
+          default: true,
+        },
+        {
+          label: 'OSMHot',
+          map: tileLayers.baseLayers.osmHot.map,
+          atribution: tileLayers.baseLayers.osmHot.atribution,
+        },
+        {
+          label: 'OSMDe',
+          map: tileLayers.baseLayers.osmDE.map,
+          atribution: tileLayers.baseLayers.osmDE.atribution,
+          default: false,
+        },
+        {
           label: 'Default',
           map: tileLayers.baseLayers.default.map,
           atribution: tileLayers.baseLayers.default.atribution,
-          default: true,
+          default: false,
         },
+        {
+          label: 'CartoDB',
+          map: tileLayers.baseLayers.cartoDb.map.positron,
+          atribution: tileLayers.baseLayers.cartoDb.atribution,
+        },
+
         {
           label: 'CycloOSM',
           map: tileLayers.baseLayers.cycloOsm.map,
@@ -181,15 +212,10 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
       position: 'topleft',
       baseLayers: [
         {
-          label: 'Default',
-          map: tileLayers.baseLayers.default.map,
-          atribution: tileLayers.baseLayers.default.atribution,
+          label: 'Osm Bright',
+          map: tileLayers.baseLayers.stadia.map.OsmBright,
+          atribution: tileLayers.baseLayers.stadia.atribution,
           default: true,
-        },
-        {
-          label: 'CycloOSM',
-          map: tileLayers.baseLayers.cycloOsm.map,
-          atribution: tileLayers.baseLayers.cycloOsm.atribution,
         },
         {
           label: 'OSMHot',
@@ -197,9 +223,27 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
           atribution: tileLayers.baseLayers.osmHot.atribution,
         },
         {
+          label: 'Default',
+          map: tileLayers.baseLayers.default.map,
+          atribution: tileLayers.baseLayers.default.atribution,
+          default: false,
+        },
+        {
+          label: 'OSM De',
+          map: tileLayers.baseLayers.osmDE.map,
+          atribution: tileLayers.baseLayers.osmDE.atribution,
+          default: false,
+        },
+        {
           label: 'CartoDB',
           map: tileLayers.baseLayers.cartoDb.map.positron,
           atribution: tileLayers.baseLayers.cartoDb.atribution,
+        },
+
+        {
+          label: 'CycloOSM',
+          map: tileLayers.baseLayers.cycloOsm.map,
+          atribution: tileLayers.baseLayers.cycloOsm.atribution,
         },
         {
           label: 'Voyager',
