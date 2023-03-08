@@ -60,8 +60,8 @@ export const useLeafletMap = (config: MapProps) => {
     // If not add layers, define default layer
     !config.defaultLayer &&
       !config.layers &&
-      tileLayer(tileLayers.baseLayers.cartoDb.map.voyager, {
-        attribution: tileLayers.baseLayers.cartoDb.atribution,
+      tileLayer(tileLayers.baseLayers.default.map, {
+        attribution: tileLayers.baseLayers.default.atribution,
       }).addTo(mapItem);
 
     // layer control implement
