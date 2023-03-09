@@ -26,8 +26,12 @@ export function addMarkers(
       markerElement
         .bindPopup(markers[0].popup.content)
         .on('click', function () {
+          const moveCamera =
+            markerElement.getLatLng().lat < map.getCenter().lat
+              ? -0.0025
+              : 0.0025;
           map.panTo(
-            new LatLng(map.getCenter().lat + 0.0025, map.getCenter().lng)
+            new LatLng(map.getCenter().lat + moveCamera, map.getCenter().lng)
           );
         });
     return;

@@ -14,7 +14,13 @@ const ATRIBUTIONS_LIST = {
     'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
   Stadia:
     '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+  OPNVKarte:
+    'Map <a href="https://memomaps.de/">memomaps.de</a> <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  ThunderForest:
+    '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 };
+
+const thunderForestKey = '47455e4b0807408c87ead5d6f7a8d1c8';
 
 export const tileLayers = {
   baseLayers: {
@@ -75,6 +81,25 @@ export const tileLayers = {
           'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
       },
       atribution: ATRIBUTIONS_LIST.CartoDb,
+    },
+    opnVKarte: {
+      map: 'https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png',
+      atribution: ATRIBUTIONS_LIST.OPNVKarte,
+    },
+    thunderForest: {
+      map: {
+        openCycleMap: `https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=${thunderForestKey}`,
+        transport: `https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=${thunderForestKey}`,
+        landscape: `https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=${thunderForestKey}`,
+        outdoors: `https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=${thunderForestKey}`,
+        transportDark: `https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=${thunderForestKey}`,
+        spinalMap: `https://tile.thunderforest.com/spinal-map/{z}/{x}/{y}.png?apikey=${thunderForestKey}`,
+        pioneer: `https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=${thunderForestKey}`,
+        mobileAtlas: `https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey=${thunderForestKey}`,
+        neighbourhood: `https://tile.thunderforest.com/neighbourhood/{z}/{x}/{y}.png?apikey=${thunderForestKey}`,
+        atlas: `https://tile.thunderforest.com/atlas/{z}/{x}/{y}.png?apikey=${thunderForestKey}`,
+      },
+      atribution: ATRIBUTIONS_LIST.ThunderForest,
     },
   },
   overlayers: {

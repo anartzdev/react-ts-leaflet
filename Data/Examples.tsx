@@ -22,7 +22,7 @@ export interface UsePropertiesMap {
 interface ExampleConfigs {
   Basic: UsePropertiesMap;
   BasicFullscreen: UsePropertiesMap;
-  BasicWithDefaultMarker: UsePropertiesMap;
+  BasicWithDefaultMarker?: UsePropertiesMap;
   MarkersBasic: UsePropertiesMap;
   BasicWithDefaultMarkerAndPopup: UsePropertiesMap;
   MapWithControlLayersBase: UsePropertiesMap;
@@ -67,7 +67,8 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
   Basic: {
     buttonLabel: 'Mapa',
     center: defaultLocation,
-    title: 'Ejemplo Básico de carga de mapa',
+    title:
+      'Ejemplo Básico de carga de mapa. El zoom es aleatorio y por cada recarga se asigna uno nuevo',
   },
   BasicFullscreen: {
     buttonLabel: 'Fullscreen',
@@ -81,7 +82,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     title:
       'Ejemplo Básico de carga de mapa con control para mostrar mapa en pantalla completa',
   },
-  BasicWithDefaultMarker: {
+  /*BasicWithDefaultMarker: {
     buttonLabel: 'Marcador',
     center: defaultLocation,
     zoom: 15,
@@ -96,7 +97,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
       atribution: tileLayers.baseLayers.osmDE.atribution,
     },
     title: 'Ejemplo Básico de carga de mapa con un marcador',
-  },
+  },*/
   BasicWithDefaultMarkerAndPopup: {
     buttonLabel: 'Marcador + Info',
     center: defaultLocation,
@@ -125,7 +126,7 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
     markers: [
       {
         position: {
-          lat: 41.417333,
+          lat: 40.417333,
           lng: -3.683028,
         },
         popup: {
@@ -154,41 +155,23 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
       'Ejemplo Básico de carga de mapa con marcadores que contienen información adicional mediante el uso de popups',
   },
   MapWithControlLayersBase: {
-    buttonLabel: 'Capas Base',
+    buttonLabel: 'Capas - Sin límite de uso',
     zoom: 14,
     center: defaultLocation,
     layers: {
       position: 'topleft',
       baseLayers: [
         {
-          label: 'Osm Bright',
-          map: tileLayers.baseLayers.stadia.map.OsmBright,
-          atribution: tileLayers.baseLayers.stadia.atribution,
+          label: 'Default - Mapnik',
+          map: tileLayers.baseLayers.default.map,
+          atribution: tileLayers.baseLayers.default.atribution,
           default: true,
         },
         {
-          label: 'OSMHot',
-          map: tileLayers.baseLayers.osmHot.map,
-          atribution: tileLayers.baseLayers.osmHot.atribution,
-        },
-        {
-          label: 'OSMDe',
+          label: 'OSMDeutchLand',
           map: tileLayers.baseLayers.osmDE.map,
           atribution: tileLayers.baseLayers.osmDE.atribution,
-          default: false,
         },
-        {
-          label: 'Default',
-          map: tileLayers.baseLayers.default.map,
-          atribution: tileLayers.baseLayers.default.atribution,
-          default: false,
-        },
-        {
-          label: 'CartoDB',
-          map: tileLayers.baseLayers.cartoDb.map.positron,
-          atribution: tileLayers.baseLayers.cartoDb.atribution,
-        },
-
         {
           label: 'CycloOSM',
           map: tileLayers.baseLayers.cycloOsm.map,
@@ -199,57 +182,11 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
           map: tileLayers.baseLayers.osmHot.map,
           atribution: tileLayers.baseLayers.osmHot.atribution,
         },
-      ],
-    },
-    title: 'Ejemplo con uso de control de capas base',
-  },
-  MapWithCtrlLayers: {
-    buttonLabel: 'Capas Full',
-    fullscreen: true,
-    center: defaultLocation,
-    zoom: 8,
-    layers: {
-      position: 'topleft',
-      baseLayers: [
-        {
-          label: 'Osm Bright',
-          map: tileLayers.baseLayers.stadia.map.OsmBright,
-          atribution: tileLayers.baseLayers.stadia.atribution,
-          default: true,
-        },
-        {
-          label: 'OSMHot',
-          map: tileLayers.baseLayers.osmHot.map,
-          atribution: tileLayers.baseLayers.osmHot.atribution,
-        },
-        {
-          label: 'Default',
-          map: tileLayers.baseLayers.default.map,
-          atribution: tileLayers.baseLayers.default.atribution,
-          default: false,
-        },
-        {
-          label: 'OSM De',
-          map: tileLayers.baseLayers.osmDE.map,
-          atribution: tileLayers.baseLayers.osmDE.atribution,
-          default: false,
-        },
-        {
-          label: 'CartoDB',
-          map: tileLayers.baseLayers.cartoDb.map.positron,
-          atribution: tileLayers.baseLayers.cartoDb.atribution,
-        },
 
         {
-          label: 'CycloOSM',
-          map: tileLayers.baseLayers.cycloOsm.map,
-          atribution: tileLayers.baseLayers.cycloOsm.atribution,
-        },
-        {
-          label: 'Voyager',
-          map: tileLayers.baseLayers.cartoDb.map.voyager,
-          atribution: tileLayers.baseLayers.cartoDb.atribution,
-          // default: true, // <=== To show with this selection
+          label: 'OPNVKarte - Transporte',
+          map: tileLayers.baseLayers.opnVKarte.map,
+          atribution: tileLayers.baseLayers.opnVKarte.atribution,
         },
       ],
       overLayers: [
@@ -259,19 +196,109 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
           select: false,
         },
         {
+          label: 'Cycling',
+          map: tileLayers.overlayers.wayMarkedTrails.cycling,
+          select: false,
+        },
+        {
           label: 'Open Railway',
           map: tileLayers.overlayers.openRailway,
-          select: true,
+          select: false,
         },
         {
           label: 'Ski Stations',
           map: tileLayers.overlayers.wayMarkedTrails.slopes,
-          select: true,
+          select: false,
         },
       ],
     },
     title:
-      'Ejemplo de control de capas usando las base y de superposición (overlayers)',
+      'Ejemplo con uso de control de capas base que NO tienen límite de uso. Se añaden las capas base que nos interesan junto con las de superposición',
+  },
+  MapWithCtrlLayers: {
+    buttonLabel: 'Capas - Restricciones - Pago',
+    fullscreen: true,
+    center: defaultLocation,
+    zoom: 8,
+    layers: {
+      position: 'topleft',
+      baseLayers: [
+        {
+          label: 'CartoDB',
+          map: tileLayers.baseLayers.cartoDb.map.voyager,
+          atribution: tileLayers.baseLayers.cartoDb.atribution,
+          default: true,
+        },
+        {
+          label: 'Stadia Maps - OSM Bright',
+          map: tileLayers.baseLayers.stadia.map.OsmBright,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+        {
+          label: 'TF - openCycleMap',
+          map: tileLayers.baseLayers.thunderForest.map.openCycleMap,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+        {
+          label: 'TF - Transport',
+          map: tileLayers.baseLayers.thunderForest.map.transport,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+        {
+          label: 'TF - Transport Dark',
+          map: tileLayers.baseLayers.thunderForest.map.transportDark,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+        {
+          label: 'TF - Landscape',
+          map: tileLayers.baseLayers.thunderForest.map.landscape,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+        {
+          label: 'TF - Outdoors',
+          map: tileLayers.baseLayers.thunderForest.map.outdoors,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+        {
+          label: 'TF - spinalMap',
+          map: tileLayers.baseLayers.thunderForest.map.spinalMap,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+        {
+          label: 'TF - Atlas',
+          map: tileLayers.baseLayers.thunderForest.map.atlas,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+        {
+          label: 'TF - Pioneer',
+          map: tileLayers.baseLayers.thunderForest.map.pioneer,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+        {
+          label: 'TF - Mobile Atlas',
+          map: tileLayers.baseLayers.thunderForest.map.mobileAtlas,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+        {
+          label: 'TF -neighbourhood',
+          map: tileLayers.baseLayers.thunderForest.map.neighbourhood,
+          atribution: tileLayers.baseLayers.thunderForest.atribution,
+          default: false,
+        },
+      ],
+    },
+    title:
+      'Ejemplo de control de capas usando las capas base que tienen restricciones por número de vistas y/o fines comerciales',
   },
   MapWithCtrlLayersMarkers: {
     buttonLabel: 'Capas + Marker',
@@ -306,9 +333,9 @@ export const EXAMPLES_CONFIGS: ExampleConfigs = {
           default: true,
         },
         {
-          label: 'Esri - WSM',
-          map: tileLayers.baseLayers.esri.worldStreetMap.map,
-          atribution: tileLayers.baseLayers.esri.worldStreetMap.atribution,
+          label: 'CyclOSM Map',
+          map: tileLayers.baseLayers.cycloOsm.map,
+          atribution: tileLayers.baseLayers.cycloOsm.atribution,
         },
       ],
       overLayers: [

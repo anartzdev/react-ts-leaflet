@@ -34,17 +34,24 @@ export default function App() {
       fitBounds: example.fitBounds,
     });
     changeTitle(example.buttonLabel);
+    changeDescription(example.title)
   };
 
   React.useEffect(() => {
     if (!mapConfig) {
       selectExample(EXAMPLES_CONFIGS.Basic);
+      changeDescription(EXAMPLES_CONFIGS.Basic.title);
     }
   }, [mapConfig]);
+
+  const changeDescription = (data: string) => {
+    document.getElementById('example-description').textContent = data;
+  };
 
   return (
     <div>
       <h2>{title}</h2>
+      <p id="example-description"></p>
       {Object.keys(EXAMPLES_CONFIGS).map((example) => (
         <Button
           key={EXAMPLES_CONFIGS[example].buttonLabel.toLowerCase()}
@@ -53,6 +60,7 @@ export default function App() {
           select={EXAMPLES_CONFIGS[example]}
         />
       ))}
+      
       {mapConfig ? <LeafletMap config={mapConfig} /> : <p>Cargando...</p>}
     </div>
   );
